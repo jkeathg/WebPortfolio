@@ -22,11 +22,11 @@ openGallery.addEventListener('click', () => {
         containerDiv.classList = 'containerDiv';
     
         const img1 = document.createElement('img');
-        img1.src = '../assets/Thing.jpg';
+        img1.src = './assets/Thing.jpg';
         const img2 = document.createElement('img');
-        img2.src = '../assets/Frank.jpg';
+        img2.src = './assets/Frank.jpg';
         const img3 = document.createElement('img');
-        img3.src = '../assets/herbert.jpg';
+        img3.src = './assets/herbert.jpg';
         const clsBtn = document.createElement('input');
         clsBtn.type = 'button';
         clsBtn.value = 'Close';
