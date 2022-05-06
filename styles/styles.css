@@ -1,35 +1,379 @@
-
-body {        
-    font-family: 'Titillium Web', sans-serif;
-    background-color: #FFFCFA;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-}
-
-main {
-    padding: 30px;
-}
-
-header {
-    background-color: #A2D7D2;
-    height: 110px;
-    padding: 0 30px;
+:root {
+    --main-white: #FFFBFB;
+    --main-blue:#08F3F7;
+    --main-red: #c90d0a;
+    --main-gray: #40373B;
+    --sub-red: #4E0403;
+    --text-dark: #002121;
+    --text-white: #FFF7F7;
+  }
+  
+  /* Base reset */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* box-sizing and font sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+  
+    /* Set font size for easy rem calculations
+     * default document font size = 16px, 1rem = 16px, 100% = 16px
+     * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+    */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  /* A few media query to set some font sizes at different screen sizes.
+   * This helps automate a bit of responsiveness.
+   * The trick is to use the rem unit for size values, margin and padding.
+   * Because rem is relative to the document font size
+   * when we scale up or down the font size on the document
+   * it will affect all properties using rem units for the values.
+  */
+  
+  /* I am using the em unit for breakpoints
+   * The calculation is the following
+   * screen size divided by browser base font size
+   * As an example: a breakpoint at 980px
+   * 980px / 16px = 61.25em
+  */
+  
+  /* 1200px / 16px = 75em */
+  @media (max-width: 75em) {
+    html {
+      font-size: 60%;
+    }
+  }
+  
+  /* 980px / 16px = 61.25em */
+  @media (max-width: 61.25em) {
+    html {
+      font-size: 58%;
+    }
+  }
+  
+  /* 460px / 16px = 28.75em */
+  @media (max-width: 28.75em) {
+    html {
+      font-size: 55%;
+    }
+  }
+  
+  
+  /* fonts */
+  
+  body {
+    font-family: 'Bebas Neue', cursive;
+  }
+  
+  nav {
+    font-family: 'Bebas Neue', cursive;
+    
+  }
+  
+  
+  .nav {
     display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: var(--main-blue);
+    box-shadow: 0 2px 0 var(--main-gray);
+  }
+  
+  .nav-list {
+    display: flex;
+    margin-right: 2rem;
+    list-style: none;
+    
+  }
+  
+  .nav-list a {
+    color: var(--text-dark);
+    display: block;
+    font-size: 2rem;
+    padding: 2rem;
+    text-decoration: none;
+    
+  }
+  
+  .nav-list a:hover {
+    background-color: var(--main-red);
+    color: var(--text-white);
+    text-shadow: 0 2px 0 var(--main-gray)
+  }
+  
+  /* welcome section start */
+  
+  
+  #welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    line-height: 0.9;
+    background-color: #000;
+    background-image: linear-gradient(to top right, #330000, #1a0000);
+    text-align: center;
+    border-bottom-style: groove;
+    border-color: var(--main-blue);
+    
+  }
+  
+  #welcome-section h1 {
+    color: var(--text-white);
+    font-size: 4rem;
+    padding-right: 6.5rem;
+    text-shadow: 1px 2px 0 var(--main-blue);
+  }
+  
+  #welcome-section h2 {
+    color: var(--text-white);
+    font-size: 9rem;
+    padding-left: 3.5rem;
+    text-shadow: 1px 2px 0 var(--main-blue);
+    
+  }
+  
+  #welcome-section #quip {
+    color: white;
+    font-size: 2.7rem;
+    padding-left: 4.6rem;
+  }
+  
+  #welcome-section #exp {
+    position: absolute;
+    margin: 0 auto;
+    left: 25%;
+    bottom: 0;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--text-white);
+    padding-bottom: 1.2rem;
+  }
+  
+  
+  /* start of project section */
+  
+  .project-section {
+    text-align: center;
+    background-color: var(--main-red);
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+    
+  }
+  
+  .project-section h3 {
+    color: var(--text-dark);
+    font-size: 6rem;
+    text-shadow: 1px 2px 0 var(--main-blue);
+    padding-bottom: 9rem;
+    
+  }
+  
+  .project-container {
+    display: grid;
+    grid-template-areas: '2 1';
+    grid-gap: 4rem;
+    width: 100%;
+    max-width: 1000px;
     align-items: center;
-    justify-content: space-between;
+    margin: 0 auto;
+    margin-bottom: 10rem;
+    justify-content: space-around;
+    
+    
+  }
+  
+  
+  
+  .project-img {
+    width: 100%;
+    object-fit: cover;
+    max-width: 400px;
+    max-height: 300px;
+    transform: scale(952px, 735px);
+  }
+  
+  .project-tile {
+    background-color: var(--sub-red);
+    padding: .5rem;
+    border-style: hidden;
+    border-radius: 6px;
+    
+  }
+  
+  .project-tile:hover {
+    box-shadow: 2px 2px 0 var(--main-blue);
+  }
+  
+  .project-title {
+    font-size: 2rem;
+    padding: .6rem;
+  }
+  
+  .project-title {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .project-container a {
+    text-decoration: none;
+  }
+  
+  #monster {
+    height: auto;
+    width: 600px;
+    object-fit:cover;
+    border-style: groove;
+    border-width: 5px;
+    border-color: var(--sub-red);
+    margin-bottom: 5rem;
+  }
+  
+  #illustrationBtn {
+    font-size: 2.4rem;
+    text-decoration: none;
+    background-color: var(--main-gray);
+    color: var(--main-blue);
+    border-style: solid;
+    border-color: var(--sub-red);
+    border-radius: 7px;
+    padding: 5px;
+    
+  }
+  #illustrationBtn:hover {
+    cursor: pointer;
+    background-color: var(--sub-red);
+    color: var(--main-white);
+    box-shadow: 2px 2px 0 var(--main-blue);
+  }
+
+  #imgGallery {
+    object-fit: scale-down;
+  }
+
+ #imgGallery img{
+  height: 265px;
+  width: auto;
 }
 
-header img {
-    height: 100%;
-    object-fit: contain;
+@media (max-width: 1100px){
+  #imgGallery img {
+  height: auto;
+  width: 700px;
+  box-shadow: 2px 2px 0 var(--main-blue);
+  }
 }
 
-h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
+
+
+.containerDiv {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: #1a0000;
+  border-style: hidden;
+  border-radius: 6px;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 75%;
+  height: auto;
+  margin: 0 auto;
+  padding: 15px;
+    
+  }
+
+@media (max-width: 1100px){
+  .containerDiv {
+  flex-direction: column;
+  }
 }
 
-footer {
-    background-color: #FAF0EA;
-    padding: 10px;
-}
+  .clsBtn {
+    width: 10.2rem;
+    font-size: 2.4rem;
+    text-decoration: none;
+    background-color: var(--main-gray);
+    color: var(--main-blue);
+    border-style: solid;
+    border-color: var(--sub-red);
+    border-radius: 7px;
+    padding: 15px;
+    
+  }
+  .clsBtn:hover {
+    cursor: pointer;
+    background-color: var(--sub-red);
+    color: var(--main-white);
+    box-shadow: 2px 2px 0 var(--main-blue);
+  }
+  
+  #contact {
+    background-color: var(--main-gray);
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+    border-top-style: groove;
+    border-color: var(--sub-red)
+  }
+  
+  .contact-section h4 {
+    font-size: 7rem;
+    color: var(--main-white);
+    text-shadow: 1.5px 1.5px 0 var(--main-blue);
+    padding-right: 25vh;
+    
+  }
+  
+  .contact-section p {
+    font-size: 5rem;
+    color: var(--main-white);
+    text-shadow: 1px 1px 0 var(--main-blue);
+    padding-left: 55vh;
+    padding-bottom: 125px;
+  }
+
+  @media (max-width: 1100px){
+    .contact-section p {
+    padding-left: 25vh;
+    }
+  }
+  
+  
+  #contact-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 3rem;
+    padding-bottom: 150px;
+    
+    
+    
+  }
+  
+  .contact-det {
+    text-decoration: none;
+    color: var(--main-white);
+  }
+  
+  .contact-det:hover {
+    text-shadow: 2px 2px 0 var(--main-red);
+  }

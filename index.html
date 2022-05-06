@@ -3,30 +3,151 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Staatliches&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
     <title>My App</title>
 </head>
 
 <body>
-    <header>
-        <h1>My App</h1>
-        <img src="assets/big-logo.png" />
-    </header>
+    <nav id="navbar" class="nav">
+        <ul class="nav-list">
+          <li><a 
+                 href="#welcome-section"
+                 >About </li></a>
+          <li><a
+                 href="#profile-link">My Work </li></a>
+          <li><a
+                 href="#contact">Contact </li></a>
+        </ul>
+    </nav>
     
-    <main>
-
-        Make a Web App!
+     <!-- Nav End Here --> 
+    
+    <!-- Start Welcome Section  -->
+    
+    
+    <section id="welcome-section">
+      <h1> Welcome, I'm</h1>
+      <h2> Jeremy Grayson</h2>
+      <p id="quip"> Im a Web Developer, Illustrator, Trainer and Coach </p> 
+      <p id="exp"> "Ive worked with software over 8 years, handling support, training and coaching. Im proficient with illustration and have some experience with designing UI"
+       </p>
+    </section>
+    
+    <!-- end of welcome section -->
+    
+    <!-- Start of project tile --> 
+    
+    <section id="projects" class="project-section">
+      <h3 id="section-header"> These are a few of my projects</h3>
+      
+      <div class="project-container">
+      <a
+         class="project-tile"
+         target="_blank"
+         href="https://jkeathg.github.io/DRBPolicySearch/"
+         
+         >
+        <img 
+             class="project-img"
+             src="../assets/KCPolicy.png"
+             height= "200"
+             width= "200"
+             target="_blank"
+             alt="KCPolicy App Image"/>
+        <p class="project-title">Mock Policy Search Application</p>
+      </a>
+      
+      
+      <a
+         class="project-tile"
+         target="_blank"
+         href="https://jkeathg.github.io/GroupAlarm/"
+         >
+        <img 
+             class="project-img"
+             src="../assets/Group Alarm.png" 
+             height= "200"
+             width= "200"
+             target="_blank"
+             alt="Group Alarm Project, project that will become a full application"/>
+        <p class="project-title">Group Alarm Starter Project</p>
+      </a>
+     
+      
+       <a
+         class="project-tile"
+         target="_blank"
+         href="https://jkeathg.github.io/NoteTakerApp/"
+         >
+        <img 
+             class="project-img"
+             src="../assets/NoteTakerApp.png"
+            height= "200"
+             width= "200"
+             target="_blank"
+             alt="Note Taker App, Lab used to understand JS to HTML element manipulation"/>
+        <p class="project-title">Test Note Taker App</p>
+      </a>
+     
+      
+       <a
+         class="project-tile"
+         target="_blank"
+         href="https://jkeathg.github.io/lab04-CalculatorLab/"
+         >
+        <img 
+             class="project-img"
+             src="../assets/calculatorapp.png"
+             height= "200"
+             width= "200"
+             target="_blank"
+             alt="Calculator Lab, used to apply mathmatical functions and test results"/>
+        <p class="project-title">Calculator Lab</p>
+      </a>
+      </div>
+      <div id="imgGallery">
         
-    </main>
-
-    <footer>
-        &copy; 2021 Alchemy Code Lab
-    </footer>
-
+      </div>
+        
+    <div><a id="illustrationBtn">
+      Illustrations</a>
+      
+    </div>
+    </section>
+    
+    
+    <!-- End of Project Tiles -->
+    
+    <!-- start of contacts -->
+    
+    
+       <section id="contact" class="contact-section">
+         <div id="contact-header">
+    <h4> Looking to learn with you.. </h4>
+           <p><i> .. where do you want to start?</i> </p>
+         </div>
+         
+         <div id="contact-links">
+           <a
+              href="https://github.com/jkeathg"
+              class="contact-det"
+              ><i class="fab fa-twitter"></i>Github</a>
+           <a
+              href="mailto:jkeathg@hotmail.com"
+              class="contact-det"
+              ><i class="fas fa-at"></i>Email Me</a>
+         </div>
+      
+    </section>
     <script type="module" src="./app.js"></script>
 </body>
 
